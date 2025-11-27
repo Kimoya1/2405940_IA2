@@ -1,0 +1,151 @@
+<!--Name: Kimoya Francis
+     Student ID: 2405940
+     Course: Web Programming
+     Individual Assessment #2 - E-Commerce Website
+     Profile Page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KimmyCakes | Profile</title> <!-- Website Title -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font used for styling text -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Header Section: with logo, background image, title, and tagline -->
+    <header class="header">
+
+        <div class="picture-bg">
+            <div class="logo"> 
+                <img src="assets/logo.png" alt="KimmyCakes Logo" class="logo-image">
+                <h1>Welcome to KimmyCakes!</h1>
+                <p class="tagline">"Sweet Moments, Baked to Perfection"</p>
+            </div>
+        </div>
+		
+		<!-- Navigation Bar -->
+        <nav class="nav">
+            <ul>
+                <!-- Home Page-->
+                <li><a href="index.html">Home</a></li>
+
+                <!-- Products Page Dropdown-->
+                <li class="dropdown">
+                    <a href="products.html">All Products</a>
+                    <ul class="dropdown-content">
+                        <li><a href="products.html">Categories</a></li>
+                        <li><a href="custom.html">Custom Orders</a></li>
+                        <li><a href="cart.html">Add to Cart</a></li>
+                    </ul>
+                </li>
+                    
+                <!-- Cart Page Dropdown-->
+                <li class="dropdown">
+                    <a href="cart.html">Cart</a>
+                    <ul class="dropdown-content">
+                        <li><a href="payment.html">Payment & Billing</a></li>
+                        <li><a href="shipping.html">Shipping Info</a></li>
+                        <li><a href="invoice.html">Invoice</a></li>
+                    </ul>
+                </li>
+
+                <!-- About Us Page -->
+                <li><a href="about.html">About Us</a></li>
+                
+                <!-- Account Page Dropdown(active) -->
+                <li class="dropdown">
+                  <a href="#" id="active">Account</a> 
+                  <ul class="dropdown-content">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="#">Forgot Password</a></li>
+                        <li><a href="profile.html" id="active">Profile</a></li>
+                        <li><a href="#">Order History</a></li> 
+                    </ul>
+                </li>
+
+                <!-- Contact Page -->
+                <li class="dropdown">
+                    <a href="contact.html">Contact Us</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Contacts</a></li> 
+                        <li><a href="#">Help</a></li> 
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Section: Profile card, Profile photo -->
+    <main class="profile-container">
+
+        <section class="profile-card">
+
+            <h2>My Profile</h2>
+            
+            <!-- Welcome text -->
+            <p class="welcome-user" id="usernameDisplay">Welcome, Customer!</p>
+
+            <div class="profile-photo-container">
+                <img src="assets/profile.png" alt="Profile Photo" class="profile-photo">
+                <p class="profile-name" id="profileName">Customer111</p>
+            </div>
+
+            <p><strong>Username:</strong> <span id="profileUsername">Customer</span></p>
+            <p><strong>Email:</strong> <span id="profileEmail">example@email.com</span></p>
+            <p><strong>Member Since:</strong> January 2025</p>
+
+            
+            <!-- dummy button order history -->
+            <a href="#" class="btn-secondary">Order History</a>
+
+            <!-- dummy button my favourites -->
+            <a href="#" class="btn-primary">My Favourites</a>
+
+            <!-- Logout Buttons -->
+            <a href="login.html" class="btn-secondary" id="logoutBtn">Log Out</a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>For That Special Sweetness</p>
+        <p><a href="mailto:2405940@utech.edu.jm">Contact Us</a></p>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript: that loads username and email -->
+    <script>
+        // Retrieve saved username and email from localStorage (from login page)
+        const username = localStorage.getItem("username");
+        const userEmail = localStorage.getItem("email");
+
+        // Top Greetings 
+        if (username) {
+            document.getElementById("usernameDisplay").textContent = "Welcome, " + username + "!";
+            document.getElementById("profileName").textContent = username;
+            document.getElementById("profileUsername").textContent = username;
+        }
+
+        if (userEmail) {
+            document.getElementById("profileEmail").textContent = userEmail
+        }
+
+        // Logoging out removes the username from localStorage
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
+        });
+    </script>
+</body>
+</html>
